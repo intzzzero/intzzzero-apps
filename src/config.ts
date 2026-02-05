@@ -21,7 +21,7 @@ export const apps: AppInfo[] = [
     name: 'InboxZero',
     tagline: 'Your Desktop, Automatically Organized',
     description: 'Automatically organize files on your Mac desktop with smart rules, presets, and powerful automation.',
-    icon: '/apps/inboxzero/icon.png',
+    icon: '/inboxzero_icon.png',
     accentColor: '#007AFF',
     appStoreUrl: '#'
   }

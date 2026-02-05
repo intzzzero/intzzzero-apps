@@ -9,9 +9,11 @@ import { siteConfig, apps } from '@/config'
   <HubHero />
   <section class="landing-section">
     <div class="landing-inner">
-      <div class="app-cards-grid">
-        {apps.map(app => (
-          <AppCard app={app} />
+      <div class="app-cards-grid" data-reveal-stagger>
+        {apps.map((app, i) => (
+          <div data-reveal="fade-up" style={`--stagger-index: ${i}`}>
+            <AppCard app={app} />
+          </div>
         ))}
       </div>
     </div>

@@ -18,9 +18,8 @@ const { title, description, ogImage } = Astro.props
 
 <BaseLayout fullWidth={true}>
   <BaseHead slot="head" title={title} description={description} ogImage={ogImage} />
-  <GradientMask>
-    <Header />
-  </GradientMask>
+  <GradientMask />
+  <Header />
   <main>
     <slot />
   </main>

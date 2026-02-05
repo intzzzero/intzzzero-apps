@@ -24,9 +24,8 @@ const { title, description, accentColor, ogImage } = Astro.props
       <style set:html={`:root { --color-accent: ${accentColor}; --cta-primary-bg: ${accentColor}; }`}></style>
     )}
   </Fragment>
-  <GradientMask>
-    <Header />
-  </GradientMask>
+  <GradientMask />
+  <Header />
   <main>
     <slot />
   </main>

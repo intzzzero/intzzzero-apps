@@ -12,11 +12,11 @@ const { items, title, subtitle } = Astro.props
 
 <section class="landing-section landing-section--alt">
   <div class="landing-inner">
-    {title && <h2 class="section-title">{title}</h2>}
-    {subtitle && <p class="section-subtitle">{subtitle}</p>}
-    <ul class="feature-list">
-      {items.map(item => (
-        <li class="feature-list__item">
+    {title && <h2 class="section-title" data-reveal="fade-up">{title}</h2>}
+    {subtitle && <p class="section-subtitle" data-reveal="fade-up">{subtitle}</p>}
+    <ul class="feature-list" data-reveal-stagger>
+      {items.map((item, i) => (
+        <li class="feature-list__item" data-reveal="fade-up" style={`--stagger-index: ${i}`}>
           <span class="feature-list__check">&#10003;</span>
           <span>{item.label}</span>
           <span class:list={[
@@ -30,3 +30,9 @@ const { items, title, subtitle } = Astro.props
     </ul>
   </div>
 </section>
+
+<style>
+  .feature-list[data-reveal-stagger] > [data-reveal] {
+    transition-delay: calc(var(--stagger-index, 0) * 50ms);
+  }
+</style>

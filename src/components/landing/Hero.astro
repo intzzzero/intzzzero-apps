@@ -12,11 +12,11 @@ const { data, appIcon } = Astro.props
 
 <section class="landing-section hero-section">
   <div class="landing-inner">
-    {appIcon && <img src={appIcon} alt="" class="hero-icon" width="96" height="96" />}
-    <h1>{data.headline}</h1>
-    <p class="hero-subtitle">{data.subheadline}</p>
-    <div class="hero-ctas">
-      <CTAButton href={data.primaryCTA.href} variant={data.primaryCTA.variant}>
+    {appIcon && <img src={appIcon} alt="" class="hero-icon hero-animate-in hero-icon-float" width="96" height="96" />}
+    <h1 class="hero-animate-in">{data.headline}</h1>
+    <p class="hero-subtitle hero-animate-in">{data.subheadline}</p>
+    <div class="hero-ctas hero-animate-in">
+      <CTAButton href={data.primaryCTA.href} variant={data.primaryCTA.variant} class="cta-pulse">
         {data.primaryCTA.label}
       </CTAButton>
       {data.secondaryCTA && (
@@ -25,7 +25,7 @@ const { data, appIcon } = Astro.props
         </CTAButton>
       )}
     </div>
-    <div class="hero-screenshot-wrapper">
+    <div class="hero-screenshot-wrapper hero-animate-in">
       <img
         src={data.screenshot}
         alt={data.screenshotAlt}

@@ -1,0 +1,183 @@
+/* ===================================
+   Scroll Reveal System
+   =================================== */
+
+[data-reveal] {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal="fade-up"] {
+  transform: translateY(24px);
+}
+
+[data-reveal="fade-down"] {
+  transform: translateY(-24px);
+}
+
+[data-reveal="fade-left"] {
+  transform: translateX(24px);
+}
+
+[data-reveal="fade-right"] {
+  transform: translateX(-24px);
+}
+
+[data-reveal="fade"] {
+  transform: none;
+}
+
+[data-reveal="scale-up"] {
+  transform: scale(0.95);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger support */
+[data-reveal-stagger] > [data-reveal] {
+  transition-delay: calc(var(--stagger-index, 0) * 80ms);
+}
+
+/* ===================================
+   Hero Entrance Animation
+   =================================== */
+
+@keyframes hero-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.hero-animate-in {
+  animation: hero-entrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-animate-in:nth-child(1) { animation-delay: 0.1s; }
+.hero-animate-in:nth-child(2) { animation-delay: 0.2s; }
+.hero-animate-in:nth-child(3) { animation-delay: 0.3s; }
+.hero-animate-in:nth-child(4) { animation-delay: 0.4s; }
+.hero-animate-in:nth-child(5) { animation-delay: 0.5s; }
+.hero-animate-in:nth-child(6) { animation-delay: 0.65s; }
+
+/* ===================================
+   Hub Entrance Animation
+   =================================== */
+
+@keyframes hub-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hub-animate-in {
+  animation: hub-entrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hub-animate-in:nth-child(1) { animation-delay: 0.1s; }
+.hub-animate-in:nth-child(2) { animation-delay: 0.25s; }
+
+/* ===================================
+   Icon Float Animation
+   =================================== */
+
+@keyframes icon-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.hero-icon-float {
+  animation: icon-float 3s ease-in-out infinite;
+}
+
+/* ===================================
+   CTA Pulse Animation
+   =================================== */
+
+@keyframes cta-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 40%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 10px color-mix(in srgb, var(--color-accent) 0%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 0%, transparent);
+  }
+}
+
+.cta-pulse {
+  animation: cta-pulse 2.5s ease-in-out infinite;
+}
+
+/* ===================================
+   Nav Link Underline Animation
+   =================================== */
+
+.nav-link-animated {
+  position: relative;
+}
+
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--text-primary);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-animated:hover::after {
+  width: 100%;
+}
+
+/* ===================================
+   Reduced Motion Overrides
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-animate-in,
+  .hub-animate-in {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  .hero-icon-float {
+    animation: none !important;
+  }
+
+  .cta-pulse {
+    animation: none !important;
+  }
+
+  .nav-link-animated::after {
+    transition: none !important;
+  }
+}

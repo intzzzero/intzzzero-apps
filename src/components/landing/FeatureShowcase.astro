@@ -13,14 +13,14 @@ const isReversed = data.imagePosition === 'left'
 <section class:list={['landing-section', { 'landing-section--alt': alt }]}>
   <div class="landing-inner">
     <div class:list={['feature-showcase', { 'feature-showcase--reversed': isReversed }]}>
-      <div class="feature-showcase__content">
+      <div class="feature-showcase__content" data-reveal="fade-up">
         {data.badge && (
           <span class="feature-showcase__badge">{data.badge}</span>
         )}
         <h2 class="feature-showcase__title">{data.title}</h2>
         <p class="feature-showcase__description">{data.description}</p>
       </div>
-      <div class="feature-showcase__image">
+      <div class="feature-showcase__image" data-reveal={isReversed ? 'fade-right' : 'fade-left'}>
         <img
           src={data.screenshot}
           alt={data.screenshotAlt}
