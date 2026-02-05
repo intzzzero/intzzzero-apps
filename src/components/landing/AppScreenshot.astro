@@ -1,0 +1,22 @@
+---
+interface Props {
+  src: string
+  alt: string
+  class?: string
+}
+
+const { src, alt, class: className = '' } = Astro.props
+---
+
+<div class:list={['app-screenshot', className]}>
+  <img src={src} alt={alt} loading="lazy" decoding="async" />
+</div>
+
+<style>
+  .app-screenshot img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-screenshot);
+  }
+</style>

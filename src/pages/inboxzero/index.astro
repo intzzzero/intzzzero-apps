@@ -1,0 +1,60 @@
+---
+import LandingLayout from '@/layouts/LandingLayout.astro'
+import Hero from '@/components/landing/Hero.astro'
+import FeatureShowcase from '@/components/landing/FeatureShowcase.astro'
+import FeatureGrid from '@/components/landing/FeatureGrid.astro'
+import FeatureList from '@/components/landing/FeatureList.astro'
+import PricingTable from '@/components/landing/PricingTable.astro'
+import CTAButton from '@/components/landing/CTAButton.astro'
+import { hero, featureShowcases, featureGridItems, moreFeatures, pricingTiers } from '@/data/inboxzero'
+import { apps } from '@/config'
+
+const app = apps.find(a => a.id === 'inboxzero')!
+---
+
+<LandingLayout
+  title={`${app.name} - ${app.tagline}`}
+  description={app.description}
+  accentColor={app.accentColor}
+>
+  <!-- Hero -->
+  <Hero data={hero} appIcon={app.icon} />
+
+  <!-- Feature Showcases (alternating) -->
+  {featureShowcases.map((showcase, i) => (
+    <FeatureShowcase data={showcase} alt={i % 2 === 1} />
+  ))}
+
+  <!-- Feature Grid -->
+  <FeatureGrid
+    items={featureGridItems}
+    title="And So Much More"
+    subtitle="Every feature designed to keep your desktop spotless."
+  />
+
+  <!-- Feature List -->
+  <FeatureList
+    items={moreFeatures}
+    title="There's More"
+    subtitle="A complete toolkit for desktop organization."
+  />
+
+  <!-- Pricing -->
+  <PricingTable
+    tiers={pricingTiers}
+    title="Simple Pricing"
+    subtitle="Start free. Upgrade when you're ready."
+  />
+
+  <!-- Final CTA -->
+  <section class="landing-section">
+    <div class="landing-inner final-cta">
+      <h2>Ready to Organize Your Desktop?</h2>
+      <p>Download InboxZero and enjoy a clean desktop, effortlessly.</p>
+      <div class="hero-ctas">
+        <CTAButton href="#" variant="primary">Download Free</CTAButton>
+        <CTAButton href="#" variant="secondary">View on App Store</CTAButton>
+      </div>
+    </div>
+  </section>
+</LandingLayout>

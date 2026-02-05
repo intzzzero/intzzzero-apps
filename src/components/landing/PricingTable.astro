@@ -1,0 +1,37 @@
+---
+import CTAButton from './CTAButton.astro'
+import type { PricingTier } from '@/types'
+
+interface Props {
+  tiers: PricingTier[]
+  title?: string
+  subtitle?: string
+}
+
+const { tiers, title, subtitle } = Astro.props
+---
+
+<section class="landing-section">
+  <div class="landing-inner">
+    {title && <h2 class="section-title">{title}</h2>}
+    {subtitle && <p class="section-subtitle">{subtitle}</p>}
+    <div class="pricing-grid">
+      {tiers.map(tier => (
+        <div class:list={['pricing-card', { 'pricing-card--highlighted': tier.highlighted }]}>
+          <h3 class="pricing-card__name">{tier.name}</h3>
+          <div class="pricing-card__price">{tier.price}</div>
+          {tier.priceDetail && <p class="pricing-card__price-detail">{tier.priceDetail}</p>}
+          <p class="pricing-card__description">{tier.description}</p>
+          <ul class="pricing-card__features">
+            {tier.features.map(feature => (
+              <li class="pricing-card__feature">{feature}</li>
+            ))}
+          </ul>
+          <CTAButton href={tier.cta.href} variant={tier.cta.variant}>
+            {tier.cta.label}
+          </CTAButton>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

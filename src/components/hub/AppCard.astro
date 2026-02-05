@@ -1,0 +1,17 @@
+---
+import type { AppInfo } from '@/types'
+
+interface Props {
+  app: AppInfo
+}
+
+const { app } = Astro.props
+---
+
+<a href={`/${app.id}`} class="app-card">
+  <img src={app.icon} alt={`${app.name} icon`} class="app-card__icon" width="64" height="64" />
+  <div class="app-card__info">
+    <h3 class="app-card__name">{app.name}</h3>
+    <p class="app-card__tagline">{app.tagline}</p>
+  </div>
+</a>

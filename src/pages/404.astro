@@ -1,13 +1,23 @@
 ---
-import { themeConfig } from '@/config'
-import IndexLayout from '@/layouts/IndexLayout.astro'
+import HubLayout from '@/layouts/HubLayout.astro'
+import { siteConfig } from '@/config'
 ---
 
-<IndexLayout title={`404 - ${themeConfig.site.title}`} description="Not Found">
-  <style>
-    .error-container {
-      color: var(--text-secondary);
-    }
-  </style>
-  <p class="error-container">Page Not Found...</p>
-</IndexLayout>
+<HubLayout title={`404 - ${siteConfig.site.title}`} description="Page not found">
+  <section class="landing-section hub-hero">
+    <div class="landing-inner">
+      <h1>404</h1>
+      <p>Page not found. <a href="/">Go back home</a>.</p>
+    </div>
+  </section>
+</HubLayout>
+
+<style>
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+</style>

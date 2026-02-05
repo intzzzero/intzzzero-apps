@@ -1,0 +1,37 @@
+---
+import CTAButton from './CTAButton.astro'
+import type { HeroData } from '@/types'
+
+interface Props {
+  data: HeroData
+  appIcon?: string
+}
+
+const { data, appIcon } = Astro.props
+---
+
+<section class="landing-section hero-section">
+  <div class="landing-inner">
+    {appIcon && <img src={appIcon} alt="" class="hero-icon" width="96" height="96" />}
+    <h1>{data.headline}</h1>
+    <p class="hero-subtitle">{data.subheadline}</p>
+    <div class="hero-ctas">
+      <CTAButton href={data.primaryCTA.href} variant={data.primaryCTA.variant}>
+        {data.primaryCTA.label}
+      </CTAButton>
+      {data.secondaryCTA && (
+        <CTAButton href={data.secondaryCTA.href} variant={data.secondaryCTA.variant}>
+          {data.secondaryCTA.label}
+        </CTAButton>
+      )}
+    </div>
+    <div class="hero-screenshot-wrapper">
+      <img
+        src={data.screenshot}
+        alt={data.screenshotAlt}
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>

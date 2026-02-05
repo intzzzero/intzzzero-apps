@@ -1,28 +1,159 @@
 ---
-import { themeConfig } from '@/config'
+import { siteConfig, apps } from '@/config'
 import ThemeToggle from '@/components/ui/ThemeToggle.astro'
 ---
 
-<header>
-  <nav>
-    <a href="/">{themeConfig.site.title}</a>
-    <ThemeToggle />
+<header class="site-header">
+  <nav class="site-nav">
+    <a href="/" class="nav-brand">{siteConfig.site.title}</a>
+    <div class="nav-links">
+      {apps.map(app => (
+        <a href={`/${app.id}`} class="nav-link">{app.name}</a>
+      ))}
+    </div>
+    <div class="nav-actions">
+      <ThemeToggle />
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    {apps.map(app => (
+      <a href={`/${app.id}`} class="mobile-link">{app.name}</a>
+    ))}
+  </div>
 </header>
+
+<script is:inline>
+  function bindHamburger() {
+    const hamburger = document.getElementById('hamburger')
+    const mobileMenu = document.getElementById('mobile-menu')
+    if (!hamburger || !mobileMenu) return
+    if (hamburger.dataset.bound) return
+    hamburger.dataset.bound = 'true'
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('is-open')
+      hamburger.classList.toggle('is-open', isOpen)
+      hamburger.setAttribute('aria-expanded', String(isOpen))
+    })
+  }
+  document.addEventListener('astro:page-load', bindHamburger)
+</script>
+
 <style>
-  header {
-    margin: 0;
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
   }
-  nav {
+
+  .site-nav {
+    max-width: var(--landing-content-width);
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1.5rem;
   }
-  header a {
-    font-weight: var(--font-weight-bold);
+
+  .nav-brand {
+    font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     text-decoration: none;
-    min-width: 3rem;
-    display: inline-block;
+    font-size: var(--font-size-l);
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: var(--font-size-m);
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--text-primary);
+    transition: all 0.2s ease;
+  }
+
+  .hamburger.is-open span:first-child {
+    transform: rotate(45deg) translate(2.5px, 2.5px);
+  }
+
+  .hamburger.is-open span:last-child {
+    transform: rotate(-45deg) translate(2.5px, -2.5px);
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 1.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+    max-width: var(--landing-content-width);
+    margin: 0 auto;
+  }
+
+  .mobile-menu.is-open {
+    display: flex;
+  }
+
+  .mobile-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.625rem 0;
+    font-size: var(--font-size-m);
+    transition: color 0.2s ease;
+  }
+
+  .mobile-link:hover {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
   }
 </style>

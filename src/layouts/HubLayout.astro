@@ -1,0 +1,28 @@
+---
+import BaseLayout from './BaseLayout.astro'
+import BaseHead from '@/components/layout/BaseHead.astro'
+import Header from '@/components/layout/Header.astro'
+import Footer from '@/components/layout/Footer.astro'
+import GradientMask from '@/components/ui/GradientMask.astro'
+import '@/styles/global.css'
+import '@/styles/landing.css'
+
+interface Props {
+  title: string
+  description: string
+  ogImage?: string
+}
+
+const { title, description, ogImage } = Astro.props
+---
+
+<BaseLayout fullWidth={true}>
+  <BaseHead slot="head" title={title} description={description} ogImage={ogImage} />
+  <GradientMask>
+    <Header />
+  </GradientMask>
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</BaseLayout>

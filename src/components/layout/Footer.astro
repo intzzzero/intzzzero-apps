@@ -1,59 +1,108 @@
 ---
-import { themeConfig } from '@/config'
+import { siteConfig, apps } from '@/config'
 const today = new Date()
 ---
 
-<footer>
-  <div class="footer-content">
-    <div class="copyright">
-      <span class="date">
-        &copy;
-        {today.getFullYear()}
-      </span>
-      {themeConfig.site.author}
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4 class="footer-col__title">Apps</h4>
+        <ul class="footer-col__list">
+          {apps.map(app => (
+            <li><a href={`/${app.id}`}>{app.name}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Support</h4>
+        <ul class="footer-col__list">
+          <li><a href="mailto:support@intzzzero.com">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Developer</h4>
+        <ul class="footer-col__list">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="powered-by">
-      Powered by{' '}
-      <a href="https://astro.build">Astro</a> &{' '}
-      <a href="https://github.com/the3ash/astro-chiri">Chiri</a>
+    <div class="footer-bottom">
+      <span>&copy; {today.getFullYear()} {siteConfig.site.author}. All rights reserved.</span>
     </div>
   </div>
 </footer>
+
 <style>
-  footer {
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 3rem 1.5rem 2rem;
+    margin-top: auto;
+  }
+
+  .footer-inner {
+    max-width: var(--landing-content-width);
+    margin: 0 auto;
+  }
+
+  .footer-columns {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 3rem;
+    justify-content: start;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-col__title {
     font-size: var(--font-size-s);
-    font-weight: var(--font-weight-light);
-    line-height: 1.75;
-    color: var(--text-secondary);
-    opacity: 0.75;
-    margin-top: 4rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100%;
+  .footer-col__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
-  .copyright,
-  .powered-by {
-    white-space: nowrap;
+  .footer-col__list li {
+    margin-bottom: 0.375rem;
   }
 
-  .copyright .date {
-    opacity: 1;
-  }
-
-  footer a {
+  .footer-col__list a {
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.2s ease-out;
+    font-size: var(--font-size-m);
+    transition: color 0.2s ease;
   }
 
-  footer a:hover {
+  .footer-col__list a:hover {
     color: var(--text-primary);
+  }
+
+  .footer-bottom {
+    font-size: var(--font-size-s);
+    color: var(--text-tertiary);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 768px) {
+    .footer-columns {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-columns {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

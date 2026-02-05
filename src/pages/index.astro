@@ -1,16 +1,19 @@
 ---
-import IndexLayout from '@/layouts/IndexLayout.astro'
-import About from '@/components/widgets/About.astro'
-import PostList from '@/components/widgets/PostList.astro'
-import { themeConfig } from '@/config'
-import { getSortedFilteredPosts } from '@/utils/draft'
-
-const posts = await getSortedFilteredPosts()
+import HubLayout from '@/layouts/HubLayout.astro'
+import HubHero from '@/components/hub/HubHero.astro'
+import AppCard from '@/components/hub/AppCard.astro'
+import { siteConfig, apps } from '@/config'
 ---
 
-<IndexLayout title={themeConfig.site.title} description={themeConfig.site.description}>
-  <About />
-  <main>
-    <PostList posts={posts} />
-  </main>
-</IndexLayout>
+<HubLayout title={siteConfig.site.title} description={siteConfig.site.description}>
+  <HubHero />
+  <section class="landing-section">
+    <div class="landing-inner">
+      <div class="app-cards-grid">
+        {apps.map(app => (
+          <AppCard app={app} />
+        ))}
+      </div>
+    </div>
+  </section>
+</HubLayout>
