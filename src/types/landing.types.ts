@@ -3,6 +3,7 @@ export interface HeroData {
   subheadline: string
   primaryCTA: CTAData
   secondaryCTA?: CTAData
+  docsCTA?: CTAData
   screenshot: string
   screenshotAlt: string
 }

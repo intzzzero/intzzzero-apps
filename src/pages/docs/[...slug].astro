@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content'
+import DocsLayout from '@/layouts/DocsLayout.astro'
+import { apps } from '@/config'
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs')
+
+  const paths = []
+
+  for (const app of apps) {
+    // Default route (EN) - /docs/[app]
+    const enDoc = docs.find(d => d.data.app === app.id && d.data.lang === 'en')
+    if (enDoc) {
+      paths.push({
+        params: { slug: app.id },
+        props: { doc: enDoc, app: app.id, lang: 'en' }
+      })
+    }
+
+    // Language specific routes - /docs/[app]/[lang]
+    const appDocs = docs.filter(d => d.data.app === app.id)
+    for (const doc of appDocs) {
+      paths.push({
+        params: { slug: `${app.id}/${doc.data.lang}` },
+        props: { doc, app: app.id, lang: doc.data.lang }
+      })
+    }
+  }
+
+  return paths
+}
+
+const { doc, app, lang } = Astro.props
+const { Content } = await doc.render()
+---
+
+<DocsLayout title={doc.data.title} currentApp={app} currentLang={lang}>
+  <Content />
+</DocsLayout>

@@ -24,6 +24,11 @@ const { data, appIcon } = Astro.props
           {data.secondaryCTA.label}
         </CTAButton>
       )}
+      {data.docsCTA && (
+        <CTAButton href={data.docsCTA.href} variant={data.docsCTA.variant || 'ghost'}>
+          {data.docsCTA.label}
+        </CTAButton>
+      )}
     </div>
     <div class="hero-screenshot-wrapper hero-animate-in">
       <img

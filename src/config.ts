@@ -21,8 +21,17 @@ export const apps: AppInfo[] = [
     name: 'InboxZero',
     tagline: 'Your Desktop, Automatically Organized',
     description: 'Automatically organize files on your Mac desktop with smart rules, presets, and powerful automation.',
-    icon: '/inboxzero_icon.png',
+    icon: '/icons/inboxzero_icon.png',
     accentColor: '#007AFF',
+    appStoreUrl: '#'
+  },
+  {
+    id: 'todayrestart',
+    name: 'Today Restart',
+    tagline: 'The Courage to Start Again',
+    description: 'A local-only habit tracker designed for those who struggle to start due to perfectionism. One minute is enough.',
+    icon: '/icons/todayrestart_icon.png',
+    accentColor: '#34C759',
     appStoreUrl: '#'
   }
 ]

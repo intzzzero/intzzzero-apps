@@ -13,6 +13,11 @@ export const hero: HeroData = {
     href: '#',
     variant: 'secondary'
   },
+  docsCTA: {
+    label: 'User Manual',
+    href: '/docs/inboxzero',
+    variant: 'secondary'
+  },
   screenshot: '/apps/inboxzero/hero-screenshot.png',
   screenshotAlt: 'InboxZero app showing organized desktop'
 }

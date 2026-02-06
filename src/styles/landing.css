@@ -346,9 +346,9 @@
 
 .app-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: 1.5rem;
-  max-width: 48rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 28rem;
   margin: 0 auto;
 }
 
@@ -376,6 +376,7 @@
   border-radius: var(--radius-lg);
   flex-shrink: 0;
   box-shadow: var(--shadow-sm);
+  object-fit: contain;
 }
 
 .app-card__info {

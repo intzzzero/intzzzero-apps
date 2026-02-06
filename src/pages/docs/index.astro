@@ -1,0 +1,6 @@
+---
+import { apps } from '@/config'
+
+// Redirect to first app's docs
+return Astro.redirect(`/docs/${apps[0].id}`)
+---
