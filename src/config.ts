@@ -2,9 +2,9 @@ import type { SiteConfig, AppInfo } from './types'
 
 export const siteConfig: SiteConfig = {
   site: {
-    title: 'intzzzero Apps',
-    description: 'macOS apps crafted with care',
-    website: 'https://apps.intzzzero.com/',
+    title: 'intzzzero apps',
+    description: 'macOS, iOS apps crafted with care',
+    website: 'https://app.intzzzero.dev/',
     author: 'intzzzero',
     language: 'en'
   },
