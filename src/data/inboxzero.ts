@@ -41,7 +41,7 @@ export const featureShowcases: FeatureShowcaseData[] = [
   },
   {
     title: 'Set It and Forget It',
-    description: 'Enable automatic mode and let InboxZero run in the background. New files on your desktop are sorted the moment they appear. Your desktop stays clean without lifting a finger.',
+    description: 'Enable File Watcher to automatically sort new files the moment they appear. Set up scheduled cleaning, quiet hours, and battery-aware options. Your desktop stays clean without lifting a finger.',
     screenshot: '/apps/inboxzero/feature-automation.png',
     screenshotAlt: 'Automation settings in InboxZero',
     imagePosition: 'left',
@@ -57,7 +57,7 @@ export const featureGridItems: FeatureGridItem[] = [
   },
   {
     title: 'Quarantine Zone',
-    description: 'Unsure about a file? Send it to quarantine for review later, keeping your desktop clean while you decide.',
+    description: 'Hold files temporarily before auto-deletion. Set retention periods (7/30/90 days) and choose the expiration action.',
     icon: '🛡️'
   },
   {
@@ -67,7 +67,7 @@ export const featureGridItems: FeatureGridItem[] = [
   },
   {
     title: 'Activity Log',
-    description: 'Track every file move with a detailed activity log. See what was moved, when, and where at a glance.',
+    description: 'Track every file move with detailed history. See what was moved, when, and where. Export to CSV for Pro users.',
     icon: '📋'
   }
 ]
@@ -76,22 +76,23 @@ export const moreFeatures: FeatureListItem[] = [
   { label: 'Drag & drop rule creation', tier: 'free' },
   { label: 'File type filtering', tier: 'free' },
   { label: 'Name pattern matching', tier: 'free' },
-  { label: 'Date-based sorting', tier: 'free' },
   { label: 'Size-based rules', tier: 'free' },
   { label: 'Custom folder destinations', tier: 'free' },
   { label: 'Menu bar quick access', tier: 'free' },
   { label: 'Notification center alerts', tier: 'free' },
   { label: 'Dark mode support', tier: 'free' },
   { label: 'Keyboard shortcuts', tier: 'free' },
-  { label: 'Scheduled organization', tier: 'pro' },
+  { label: 'File Watcher (auto-clean)', tier: 'pro' },
+  { label: 'Scheduled cleaning', tier: 'pro' },
+  { label: 'Quiet Hours', tier: 'pro' },
+  { label: 'Battery-aware cleaning', tier: 'pro' },
+  { label: 'Clean on Startup', tier: 'pro' },
+  { label: 'Launch at Login', tier: 'pro' },
   { label: 'Regex pattern matching', tier: 'pro' },
-  { label: 'Tag-based filing', tier: 'pro' },
+  { label: 'Creation/modified date conditions', tier: 'pro' },
+  { label: 'File age conditions', tier: 'pro' },
   { label: 'Multi-folder watching', tier: 'pro' },
-  { label: 'Cloud folder support', tier: 'pro' },
-  { label: 'AppleScript integration', tier: 'pro' },
-  { label: 'Shortcuts app actions', tier: 'pro' },
-  { label: 'Custom notification sounds', tier: 'pro' },
-  { label: 'Export/import rules', tier: 'pro' },
+  { label: 'CSV activity export', tier: 'pro' },
   { label: 'Priority support', tier: 'pro' }
 ]
 
@@ -101,11 +102,10 @@ export const pricingTiers: PricingTier[] = [
     price: '$0',
     description: 'Everything you need to keep your desktop organized.',
     features: [
-      'Up to 5 active rules',
+      'Up to 2 rules',
       'Built-in presets',
-      'Undo history',
-      'Quarantine zone',
-      'Duplicate detection',
+      '24-hour undo history',
+      'Basic conditions',
       'Menu bar access'
     ],
     cta: {
@@ -121,13 +121,13 @@ export const pricingTiers: PricingTier[] = [
     description: 'Unlock the full power of desktop automation.',
     features: [
       'Unlimited rules',
-      'Automatic mode',
-      'Scheduled organization',
-      'Regex patterns',
-      'Multi-folder watching',
-      'Cloud folder support',
-      'AppleScript & Shortcuts',
-      'Priority support'
+      '30-day undo history',
+      'All advanced conditions',
+      'Scheduled cleaning',
+      'File Watcher (auto-clean)',
+      'Quarantine with auto-delete',
+      'CSV activity export',
+      'Launch at Login'
     ],
     cta: {
       label: 'Get Pro',
