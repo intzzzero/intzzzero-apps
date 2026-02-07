@@ -32,27 +32,40 @@ const fadeAnimation = siteConfig.general.fadeAnimation
     }
   </body>
   <script>
-    // Make all links open in a new window
-    document.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('a');
-      links.forEach(link => {
-        if (!link.hasAttribute('target')) {
-          link.setAttribute('target', '_blank');
-          link.setAttribute('rel', 'noopener noreferrer');
-        }
-      });
-    });
+    const handleExternalLinks = () => {
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
 
-    // Handle dynamically added links or Astro transitions
-    document.addEventListener('astro:page-load', () => {
-      const links = document.querySelectorAll('a');
-      links.forEach(link => {
-        if (!link.hasAttribute('target')) {
-          link.setAttribute('target', '_blank');
-          link.setAttribute('rel', 'noopener noreferrer');
+        // External link criteria:
+        // 1. Has a hostname (not a relative path or anchor)
+        // 2. Hostname is different from current window location
+        // 3. Protocol is http or https (to avoid mailto:, tel:, etc.)
+        const isExternal = link.hostname && 
+                          link.hostname !== window.location.hostname && 
+                          (link.protocol === 'http:' || link.protocol === 'https:');
+        
+        if (isExternal) {
+          if (!link.hasAttribute('target')) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+          }
+        } else {
+          // For internal links, we don't force target="_blank".
+          // If it was already set (unlikely from this script, but possible in HTML),
+          // we might want to keep it if it was intentional, but most likely it wasn't.
+          // However, the task is "internal moves do not open in a new window", 
+          // which might imply we should remove it if it exists.
+          // But usually, it's safer to just NOT add it.
         }
       });
-    });
+    };
+
+    // Execute on initial load
+    handleExternalLinks();
+
+    // Execute on Astro page transitions
+    document.addEventListener('astro:page-load', handleExternalLinks);
   </script>
   <script src="@/scripts/scroll-reveal.ts"></script>
 </html>
