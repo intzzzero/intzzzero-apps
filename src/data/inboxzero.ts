@@ -18,7 +18,7 @@ export const hero: HeroData = {
     href: '/docs/inboxzero',
     variant: 'secondary'
   },
-  screenshot: '/apps/inboxzero/hero-screenshot.png',
+  screenshot: '/screenshots/inboxzero/01.png',
   screenshotAlt: 'InboxZero app showing organized desktop'
 }
 
@@ -26,28 +26,28 @@ export const featureShowcases: FeatureShowcaseData[] = [
   {
     title: 'Smart Rules That Work For You',
     description: 'Create powerful file organization rules based on file type, name patterns, date, size, and more. InboxZero watches your desktop and automatically moves files to the right place.',
-    screenshot: '/apps/inboxzero/feature-rules.png',
+    screenshot: '/screenshots/inboxzero/02.png',
     screenshotAlt: 'Smart Rules editor in InboxZero',
     imagePosition: 'right'
   },
   {
     title: 'One-Click Presets',
     description: 'Get started instantly with built-in presets for common workflows. Organize screenshots, downloads, documents, and more with a single click. Customize any preset to fit your needs.',
-    screenshot: '/apps/inboxzero/feature-presets.png',
+    screenshot: '/screenshots/inboxzero/03.png',
     screenshotAlt: 'Preset selection panel in InboxZero',
     imagePosition: 'left'
   },
   {
     title: 'Preview Before You Organize',
     description: 'See exactly where your files will go before any action is taken. The live preview dashboard shows pending moves, letting you confirm or adjust rules with confidence.',
-    screenshot: '/apps/inboxzero/feature-dashboard.png',
+    screenshot: '/screenshots/inboxzero/04.png',
     screenshotAlt: 'InboxZero preview dashboard',
     imagePosition: 'right'
   },
   {
     title: 'Set It and Forget It',
     description: 'Enable File Watcher to automatically sort new files the moment they appear. Set up scheduled cleaning, quiet hours, and battery-aware options. Your desktop stays clean without lifting a finger.',
-    screenshot: '/apps/inboxzero/feature-automation.png',
+    screenshot: '/screenshots/inboxzero/05.png',
     screenshotAlt: 'Automation settings in InboxZero',
     imagePosition: 'left',
     badge: 'PRO'
