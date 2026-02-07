@@ -5,50 +5,40 @@ export const hero: HeroData = {
   subheadline: 'Today Restart is a local-only habit tracker for perfectionists. No streaks, no pressure. Just start again, one minute at a time.',
   primaryCTA: {
     label: 'Download Free',
-    href: '#',
+    href: 'https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98-%EB%8B%A4%EC%8B%9C-%EB%82%98%EB%A5%BC-%EB%A7%8C%EB%93%9C%EB%8A%94-%EC%9E%91%EC%9D%80-%EC%8A%B5%EA%B4%80/id6758337278',
     variant: 'primary'
   },
   secondaryCTA: {
     label: 'View on App Store',
-    href: '#',
+    href: 'https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98-%EB%8B%A4%EC%8B%9C-%EB%82%98%EB%A5%BC-%EB%A7%8C%EB%93%9C%EB%8A%94-%EC%9E%91%EC%9D%80-%EC%8A%B5%EA%B4%80/id6758337278',
     variant: 'secondary'
   },
   docsCTA: {
     label: 'User Manual',
     href: '/docs/todayrestart',
     variant: 'secondary'
-  },
-  screenshot: '/apps/todayrestart/hero-screenshot.png',
-  screenshotAlt: 'Today Restart app showing habit journey'
+  }
 }
 
 export const featureShowcases: FeatureShowcaseData[] = [
   {
     title: 'Resilience Over Streaks',
     description: 'Success is measured by the number of times you started again, not consecutive days. Miss a day? A week? No problem. Your journey continues the moment you return.',
-    screenshot: '/apps/todayrestart/feature-resilience.png',
-    screenshotAlt: 'Journey Line showing restart count',
     imagePosition: 'right'
   },
   {
     title: 'Your Journey, Visualized',
     description: 'The Journey Line connects your first check-in to your latest, no matter how many days you missed. The line never breaks — proof that you haven\'t given up.',
-    screenshot: '/apps/todayrestart/feature-journey.png',
-    screenshotAlt: 'Journey Line visualization',
     imagePosition: 'left'
   },
   {
     title: '100% Private, 100% Local',
     description: 'No servers, no accounts, no sync. All your data stays on your iPhone. No privacy leaks, no data harvesting. Just you and your habits.',
-    screenshot: '/apps/todayrestart/feature-privacy.png',
-    screenshotAlt: 'Local-only storage illustration',
     imagePosition: 'right'
   },
   {
     title: 'Check In From Your Home Screen',
     description: 'Complete your habits without even opening the app. The iOS widget lets you check off habits with a single tap, greeted by warm, encouraging messages.',
-    screenshot: '/apps/todayrestart/feature-widget.png',
-    screenshotAlt: 'iOS Widget for Today Restart',
     imagePosition: 'left'
   }
 ]
@@ -108,7 +98,7 @@ export const pricingTiers: PricingTier[] = [
     ],
     cta: {
       label: 'Download Free',
-      href: '#',
+      href: 'https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98-%EB%8B%A4%EC%8B%9C-%EB%82%98%EB%A5%BC-%EB%A7%8C%EB%93%9C%EB%8A%94-%EC%9E%91%EC%9D%80-%EC%8A%B5%EA%B4%80/id6758337278',
       variant: 'secondary'
     }
   },
@@ -124,7 +114,7 @@ export const pricingTiers: PricingTier[] = [
     ],
     cta: {
       label: 'Remove Ads',
-      href: '#',
+      href: 'https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98-%EB%8B%A4%EC%8B%9C-%EB%82%98%EB%A5%BC-%EB%A7%8C%EB%93%9C%EB%8A%94-%EC%9E%91%EC%9D%80-%EC%8A%B5%EA%B4%80/id6758337278',
       variant: 'primary'
     },
     highlighted: true

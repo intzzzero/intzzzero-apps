@@ -4,8 +4,8 @@ export interface HeroData {
   primaryCTA: CTAData
   secondaryCTA?: CTAData
   docsCTA?: CTAData
-  screenshot: string
-  screenshotAlt: string
+  screenshot?: string
+  screenshotAlt?: string
 }
 
 export interface CTAData {
@@ -17,8 +17,8 @@ export interface CTAData {
 export interface FeatureShowcaseData {
   title: string
   description: string
-  screenshot: string
-  screenshotAlt: string
+  screenshot?: string
+  screenshotAlt?: string
   imagePosition: 'left' | 'right'
   badge?: string
 }

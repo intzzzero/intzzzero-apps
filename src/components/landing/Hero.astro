@@ -30,13 +30,15 @@ const { data, appIcon } = Astro.props
         </CTAButton>
       )}
     </div>
-    <div class="hero-screenshot-wrapper hero-animate-in">
-      <img
-        src={data.screenshot}
-        alt={data.screenshotAlt}
-        loading="eager"
-        decoding="async"
-      />
-    </div>
+    {data.screenshot && (
+      <div class="hero-screenshot-wrapper hero-animate-in">
+        <img
+          src={data.screenshot}
+          alt={data.screenshotAlt}
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    )}
   </div>
 </section>

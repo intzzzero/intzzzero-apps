@@ -31,6 +31,29 @@ const fadeAnimation = siteConfig.general.fadeAnimation
       )
     }
   </body>
+  <script>
+    // Make all links open in a new window
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('a');
+      links.forEach(link => {
+        if (!link.hasAttribute('target')) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    });
+
+    // Handle dynamically added links or Astro transitions
+    document.addEventListener('astro:page-load', () => {
+      const links = document.querySelectorAll('a');
+      links.forEach(link => {
+        if (!link.hasAttribute('target')) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    });
+  </script>
   <script src="@/scripts/scroll-reveal.ts"></script>
 </html>
 
