@@ -17,11 +17,11 @@ export const siteConfig: SiteConfig = {
 
 export const apps: AppInfo[] = [
   {
-    id: 'inboxzero',
-    name: 'InboxZero',
+    id: 'tidybox',
+    name: 'TidyBox',
     tagline: 'Your Desktop, Automatically Organized',
     description: 'Automatically organize files on your Mac desktop with smart rules, presets, and powerful automation.',
-    icon: '/icons/inboxzero_icon.png',
+    icon: '/icons/tidybox_icon.png',
     accentColor: '#007AFF',
     appStoreUrl: '#'
   },

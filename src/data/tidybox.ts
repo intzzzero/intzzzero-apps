@@ -2,7 +2,7 @@ import type { HeroData, FeatureShowcaseData, FeatureGridItem, FeatureListItem, P
 
 export const hero: HeroData = {
   headline: 'Your Desktop, Automatically Organized',
-  subheadline: 'InboxZero keeps your Mac desktop clean by automatically sorting files with smart rules, presets, and powerful automation.',
+  subheadline: 'TidyBox keeps your Mac desktop clean by automatically sorting files with smart rules, presets, and powerful automation.',
   primaryCTA: {
     label: 'Download Free',
     href: '#',
@@ -15,40 +15,40 @@ export const hero: HeroData = {
   },
   docsCTA: {
     label: 'User Manual',
-    href: '/docs/inboxzero',
+    href: '/docs/tidybox',
     variant: 'secondary'
   },
-  screenshot: '/screenshots/inboxzero/01.png',
-  screenshotAlt: 'InboxZero app showing organized desktop'
+  screenshot: '/screenshots/tidybox/01.png',
+  screenshotAlt: 'TidyBox app showing organized desktop'
 }
 
 export const featureShowcases: FeatureShowcaseData[] = [
   {
     title: 'Smart Rules That Work For You',
-    description: 'Create powerful file organization rules based on file type, name patterns, date, size, and more. InboxZero watches your desktop and automatically moves files to the right place.',
-    screenshot: '/screenshots/inboxzero/02.png',
-    screenshotAlt: 'Smart Rules editor in InboxZero',
+    description: 'Create powerful file organization rules based on file type, name patterns, date, size, and more. TidyBox watches your desktop and automatically moves files to the right place.',
+    screenshot: '/screenshots/tidybox/02.png',
+    screenshotAlt: 'Smart Rules editor in TidyBox',
     imagePosition: 'right'
   },
   {
     title: 'One-Click Presets',
     description: 'Get started instantly with built-in presets for common workflows. Organize screenshots, downloads, documents, and more with a single click. Customize any preset to fit your needs.',
-    screenshot: '/screenshots/inboxzero/03.png',
-    screenshotAlt: 'Preset selection panel in InboxZero',
+    screenshot: '/screenshots/tidybox/03.png',
+    screenshotAlt: 'Preset selection panel in TidyBox',
     imagePosition: 'left'
   },
   {
     title: 'Preview Before You Organize',
     description: 'See exactly where your files will go before any action is taken. The live preview dashboard shows pending moves, letting you confirm or adjust rules with confidence.',
-    screenshot: '/screenshots/inboxzero/04.png',
-    screenshotAlt: 'InboxZero preview dashboard',
+    screenshot: '/screenshots/tidybox/04.png',
+    screenshotAlt: 'TidyBox preview dashboard',
     imagePosition: 'right'
   },
   {
     title: 'Set It and Forget It',
     description: 'Enable File Watcher to automatically sort new files the moment they appear. Set up scheduled cleaning, quiet hours, and battery-aware options. Your desktop stays clean without lifting a finger.',
-    screenshot: '/screenshots/inboxzero/05.png',
-    screenshotAlt: 'Automation settings in InboxZero',
+    screenshot: '/screenshots/tidybox/05.png',
+    screenshotAlt: 'Automation settings in TidyBox',
     imagePosition: 'left',
     badge: 'PRO'
   }
@@ -57,7 +57,7 @@ export const featureShowcases: FeatureShowcaseData[] = [
 export const featureGridItems: FeatureGridItem[] = [
   {
     title: 'Undo Anytime',
-    description: 'Accidentally moved a file? Undo any action with a single click. InboxZero keeps a history of all moves.',
+    description: 'Accidentally moved a file? Undo any action with a single click. TidyBox keeps a history of all moves.',
     icon: '↩️'
   },
   {

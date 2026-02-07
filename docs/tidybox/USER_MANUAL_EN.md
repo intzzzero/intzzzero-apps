@@ -1,10 +1,4 @@
----
-title: "InboxZero User Manual"
-app: "inboxzero"
-lang: "en"
----
-
-# InboxZero User Manual
+# TidyBox User Manual
 
 > Keep your Downloads folder clean! Automatic file organizer for macOS
 
@@ -12,7 +6,7 @@ lang: "en"
 
 ## Table of Contents
 
-1. [What is InboxZero?](#1-what-is-inboxzero)
+1. [What is TidyBox?](#1-what-is-tidybox)
 2. [Getting Started](#2-getting-started)
 3. [Using the Dashboard](#3-using-the-dashboard)
 4. [Using the Menu Bar](#4-using-the-menu-bar)
@@ -28,9 +22,9 @@ lang: "en"
 
 ---
 
-## 1. What is InboxZero?
+## 1. What is TidyBox?
 
-InboxZero is an app that **automatically organizes files** in your Downloads folder or Desktop according to your rules.
+TidyBox is an app that **automatically organizes files** in your Downloads folder or Desktop according to your rules.
 
 ### Who is this for?
 
@@ -90,11 +84,11 @@ Shows the current file status in your selected folders. Click **Continue** to pr
 
 ## 3. Using the Dashboard
 
-The Dashboard is the main screen of InboxZero.
+The Dashboard is the main screen of TidyBox.
 
 ### Opening the Dashboard
 
-- Click the menu bar icon → Select **Open InboxZero**
+- Click the menu bar icon → Select **Open TidyBox**
 - Or use shortcut `⌘O`
 
 ### Screen Layout
@@ -122,19 +116,19 @@ Click the **eye icon** next to a file to preview its contents.
 
 ## 4. Using the Menu Bar
 
-InboxZero is always visible in the menu bar.
+TidyBox is always visible in the menu bar.
 
 ### Menu Items
 
 | Menu | Shortcut | Description |
 |------|----------|-------------|
-| Open InboxZero | `⌘O` | Open Dashboard |
+| Open TidyBox | `⌘O` | Open Dashboard |
 | Clean Now | `⌘K` | Run clean immediately |
 | Undo Last Action | `⌘Z` | Undo last operation |
 | Manage Rules... | `⌘,` | Open rule management |
 | Activity Log... | `⌘L` | View activity log |
 | Settings... | — | Open settings |
-| Quit InboxZero | `⌘Q` | Quit app |
+| Quit TidyBox | `⌘Q` | Quit app |
 
 ---
 
@@ -479,7 +473,7 @@ If you already purchased on another Mac:
 
 ### Q: It says folder access permission is required
 
-Go to System Settings → Privacy & Security → Full Disk Access and allow InboxZero.
+Go to System Settings → Privacy & Security → Full Disk Access and allow TidyBox.
 
 ### Q: Auto-cleaning is not working
 
@@ -502,4 +496,4 @@ Go to System Settings → Privacy & Security → Full Disk Access and allow Inbo
 
 ---
 
-Start your clean Mac life with **InboxZero**!
+Start your clean Mac life with **TidyBox**!
