@@ -23,7 +23,7 @@ export const apps: AppInfo[] = [
     description: 'Automatically organize files on your Mac desktop with smart rules, presets, and powerful automation.',
     icon: '/icons/tidybox_icon.png',
     accentColor: '#007AFF',
-    appStoreUrl: '#'
+    appStoreUrl: 'https://apps.apple.com/us/app/tidybox-auto-file-sorter/id6758889780'
   },
   {
     id: 'todayrestart',

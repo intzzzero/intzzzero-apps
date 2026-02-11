@@ -52,8 +52,8 @@ const app = apps.find(a => a.id === 'tidybox')!
       <h2 data-reveal="fade-up">Ready to Organize Your Desktop?</h2>
       <p data-reveal="fade-up">Download TidyBox and enjoy a clean desktop, effortlessly.</p>
       <div class="hero-ctas" data-reveal="fade-up">
-        <CTAButton href="#" variant="primary">Download Free</CTAButton>
-        <CTAButton href="#" variant="secondary">View on App Store</CTAButton>
+        <CTAButton href={app.appStoreUrl || '#'} variant="primary">Download Free</CTAButton>
+        <CTAButton href={app.appStoreUrl || '#'} variant="secondary">View on App Store</CTAButton>
       </div>
     </div>
   </section>

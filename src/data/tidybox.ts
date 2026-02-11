@@ -5,12 +5,12 @@ export const hero: HeroData = {
   subheadline: 'TidyBox keeps your Mac desktop clean by automatically sorting files with smart rules, presets, and powerful automation.',
   primaryCTA: {
     label: 'Download Free',
-    href: '#',
+    href: 'https://apps.apple.com/us/app/tidybox-auto-file-sorter/id6758889780',
     variant: 'primary'
   },
   secondaryCTA: {
     label: 'View on App Store',
-    href: '#',
+    href: 'https://apps.apple.com/us/app/tidybox-auto-file-sorter/id6758889780',
     variant: 'secondary'
   },
   docsCTA: {
@@ -115,7 +115,7 @@ export const pricingTiers: PricingTier[] = [
     ],
     cta: {
       label: 'Download Free',
-      href: '#',
+      href: 'https://apps.apple.com/us/app/tidybox-auto-file-sorter/id6758889780',
       variant: 'secondary'
     }
   },
@@ -136,7 +136,7 @@ export const pricingTiers: PricingTier[] = [
     ],
     cta: {
       label: 'Get Pro',
-      href: '#',
+      href: 'https://apps.apple.com/us/app/tidybox-auto-file-sorter/id6758889780',
       variant: 'primary'
     },
     highlighted: true
@@ -154,7 +154,7 @@ export const pricingTiers: PricingTier[] = [
     ],
     cta: {
       label: 'Start Trial',
-      href: '#',
+      href: 'https://apps.apple.com/us/app/tidybox-auto-file-sorter/id6758889780',
       variant: 'ghost'
     }
   }
