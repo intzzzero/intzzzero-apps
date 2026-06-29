@@ -1,29 +1,46 @@
 ---
 import { getCollection } from 'astro:content'
 import DocsLayout from '@/layouts/DocsLayout.astro'
-import { apps } from '@/config'
+import { apps, siteConfig } from '@/config'
 
 export async function getStaticPaths() {
+  // Note: getStaticPaths runs in isolation and can only reference imports,
+  // so these helpers must live inside it (not at module scope).
+  const SITE = siteConfig.site.website.replace(/\/$/, '')
+  // EN is served at the clean /docs/<app> URL; other languages at /docs/<app>/<lang>.
+  const docHref = (appId: string, lang: string) =>
+    lang === 'en' ? `${SITE}/docs/${appId}` : `${SITE}/docs/${appId}/${lang}`
+
   const docs = await getCollection('docs')
 
   const paths = []
 
   for (const app of apps) {
+    const appDocs = docs.filter(d => d.data.app === app.id)
+    if (appDocs.length === 0) continue
+
+    const alternates = appDocs.map(d => ({ lang: d.data.lang, href: docHref(app.id, d.data.lang) }))
+
     // Default route (EN) - /docs/[app]
-    const enDoc = docs.find(d => d.data.app === app.id && d.data.lang === 'en')
+    const enDoc = appDocs.find(d => d.data.lang === 'en')
     if (enDoc) {
       paths.push({
         params: { slug: app.id },
-        props: { doc: enDoc, app: app.id, lang: 'en' }
+        props: { doc: enDoc, app: app.id, lang: 'en', canonical: docHref(app.id, 'en'), alternates }
       })
     }
 
     // Language specific routes - /docs/[app]/[lang]
-    const appDocs = docs.filter(d => d.data.app === app.id)
     for (const doc of appDocs) {
       paths.push({
         params: { slug: `${app.id}/${doc.data.lang}` },
-        props: { doc, app: app.id, lang: doc.data.lang }
+        props: {
+          doc,
+          app: app.id,
+          lang: doc.data.lang,
+          canonical: docHref(app.id, doc.data.lang),
+          alternates
+        }
       })
     }
   }
@@ -31,10 +48,16 @@ export async function getStaticPaths() {
   return paths
 }
 
-const { doc, app, lang } = Astro.props
+const { doc, app, lang, canonical, alternates } = Astro.props
 const { Content } = await doc.render()
 ---
 
-<DocsLayout title={doc.data.title} currentApp={app} currentLang={lang}>
+<DocsLayout
+  title={doc.data.title}
+  currentApp={app}
+  currentLang={lang}
+  canonical={canonical}
+  alternates={alternates}
+>
   <Content />
 </DocsLayout>

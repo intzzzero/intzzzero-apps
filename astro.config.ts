@@ -16,7 +16,13 @@ export default defineConfig({
   },
   integrations: [
     playformInline(),
-    sitemap()
+    sitemap({
+      // Keep canonicalized-away URLs out of the sitemap:
+      //  - /meowstiny landing canonicalizes to meowstiny.com (must NOT match /docs/meowstiny)
+      //  - /docs/<app>/en duplicates the clean /docs/<app> EN route
+      filter: page =>
+        !/^https?:\/\/[^/]+\/meowstiny\/?$/.test(page) && !/\/docs\/[^/]+\/en\/?$/.test(page)
+    })
   ],
   vite: {
     resolve: {

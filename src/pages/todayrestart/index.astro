@@ -8,6 +8,7 @@ import PricingTable from '@/components/landing/PricingTable.astro'
 import CTAButton from '@/components/landing/CTAButton.astro'
 import { hero, featureShowcases, featureGridItems, moreFeatures, pricingTiers } from '@/data/todayrestart'
 import { apps } from '@/config'
+import { appJsonLd } from '@/utils/structured-data'
 
 const app = apps.find(a => a.id === 'todayrestart')!
 ---
@@ -16,6 +17,7 @@ const app = apps.find(a => a.id === 'todayrestart')!
   title={`${app.name} - ${app.tagline}`}
   description={app.description}
   accentColor={app.accentColor}
+  jsonLd={appJsonLd(app)}
 >
   <!-- Hero -->
   <Hero data={hero} appIcon={app.icon} />

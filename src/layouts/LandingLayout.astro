@@ -12,14 +12,16 @@ interface Props {
   description: string
   accentColor?: string
   ogImage?: string
+  canonical?: string
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[]
 }
 
-const { title, description, accentColor, ogImage } = Astro.props
+const { title, description, accentColor, ogImage, canonical, jsonLd } = Astro.props
 ---
 
 <BaseLayout fullWidth={true}>
   <Fragment slot="head">
-    <BaseHead title={title} description={description} ogImage={ogImage} />
+    <BaseHead title={title} description={description} ogImage={ogImage} canonical={canonical} jsonLd={jsonLd} />
     {accentColor && (
       <style set:html={`:root { --color-accent: ${accentColor}; --cta-primary-bg: ${accentColor}; }`}></style>
     )}

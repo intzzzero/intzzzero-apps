@@ -1,0 +1,17 @@
+# intzzzero apps
+
+> Privacy-first macOS and iOS apps by intzzzero (Sooyoung Jeong). Every app is built to be local-only with no login and a minimal footprint — your data stays on your device. Apps are distributed free on the App Store (some with optional one-time purchases).
+
+## Apps
+- [TidyBox](https://app.intzzzero.dev/tidybox): macOS app that automatically organizes desktop files with smart rules, presets, and automation. Free with an optional one-time Pro upgrade.
+- [Today Restart](https://app.intzzzero.dev/todayrestart): iOS local-only habit tracker for perfectionists — no streaks, no pressure, restart anytime. Free with an optional ad-removal purchase.
+- [Meowstiny](https://app.intzzzero.dev/meowstiny): iOS daily cat-health diary — one-tap logging of litter, medication, weight and respiration, plus a vet-ready single-image report. Built for chronic conditions (FLUTD, CKD, diabetes, IBD). Free, no login, on-device. Official site: https://meowstiny.com
+
+## Docs
+- [TidyBox manual](https://app.intzzzero.dev/docs/tidybox)
+- [Today Restart manual](https://app.intzzzero.dev/docs/todayrestart)
+- [Meowstiny manual](https://app.intzzzero.dev/docs/meowstiny)
+
+## Developer
+- [GitHub](https://github.com/intzzzero)
+- Contact: intzzzero@gmail.com

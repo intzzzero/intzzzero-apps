@@ -1,0 +1,82 @@
+---
+import LandingLayout from '@/layouts/LandingLayout.astro'
+import Hero from '@/components/landing/Hero.astro'
+import FeatureShowcase from '@/components/landing/FeatureShowcase.astro'
+import FeatureGrid from '@/components/landing/FeatureGrid.astro'
+import FeatureList from '@/components/landing/FeatureList.astro'
+import CTAButton from '@/components/landing/CTAButton.astro'
+import { hero, featureShowcases, featureGridItems, moreFeatures } from '@/data/meowstiny'
+import { apps } from '@/config'
+import { appJsonLd } from '@/utils/structured-data'
+
+const app = apps.find(a => a.id === 'meowstiny')!
+---
+
+<LandingLayout
+  title={`${app.name} - ${app.tagline}`}
+  description={app.description}
+  accentColor={app.accentColor}
+  ogImage="/apps/meowstiny/og-image.png"
+  canonical={app.officialUrl}
+  jsonLd={appJsonLd(app)}
+>
+  <!-- Hero -->
+  <Hero data={hero} appIcon={app.icon} />
+
+  <!-- Feature Showcases (alternating) -->
+  {featureShowcases.map((showcase, i) => (
+    <FeatureShowcase data={showcase} alt={i % 2 === 1} />
+  ))}
+
+  <!-- Feature Grid -->
+  <FeatureGrid
+    items={featureGridItems}
+    title="Built for Everyday Care"
+    subtitle="The details that make daily logging effortless — and genuinely useful at the vet."
+  />
+
+  <!-- Feature List -->
+  <FeatureList
+    items={moreFeatures}
+    title="All Features"
+    subtitle="Everything is free. No login, no subscription."
+  />
+
+  <!-- Final CTA -->
+  <section class="landing-section">
+    <div class="landing-inner final-cta">
+      <h2 data-reveal="fade-up">Start Caring, One Tap at a Time</h2>
+      <p data-reveal="fade-up">Download Meowstiny and turn daily notes into a clear picture of your cat's health.</p>
+      <div class="hero-ctas" data-reveal="fade-up">
+        <CTAButton href="https://apps.apple.com/us/app/id6752027845" variant="primary">Download Free</CTAButton>
+        <CTAButton href="https://meowstiny.com/" variant="secondary">Visit meowstiny.com</CTAButton>
+      </div>
+    </div>
+  </section>
+</LandingLayout>
+
+<!--
+  Meowstiny ships tall portrait phone screenshots; the shared landing styles assume
+  wide macOS screenshots, so constrain these images to a phone-sized, framed look.
+  Declared here so it only loads on /meowstiny.
+-->
+<style is:global>
+  .hero-screenshot-wrapper {
+    max-width: 19rem;
+  }
+
+  .hero-screenshot-wrapper img,
+  .feature-showcase__image img {
+    border-radius: 1.5rem;
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.18);
+  }
+
+  .feature-showcase__image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .feature-showcase__image img {
+    max-width: 18rem;
+  }
+</style>

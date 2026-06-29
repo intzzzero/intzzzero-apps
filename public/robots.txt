@@ -1,0 +1,19 @@
+# https://app.intzzzero.dev
+# All crawlers welcome, including AI / answer-engine bots.
+
+User-agent: *
+Allow: /
+
+# AI / answer-engine crawlers (explicitly welcomed)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://app.intzzzero.dev/sitemap-index.xml

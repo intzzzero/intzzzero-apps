@@ -11,13 +11,14 @@ interface Props {
   title: string
   description: string
   ogImage?: string
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[]
 }
 
-const { title, description, ogImage } = Astro.props
+const { title, description, ogImage, jsonLd } = Astro.props
 ---
 
 <BaseLayout fullWidth={true}>
-  <BaseHead slot="head" title={title} description={description} ogImage={ogImage} />
+  <BaseHead slot="head" title={title} description={description} ogImage={ogImage} jsonLd={jsonLd} />
   <GradientMask />
   <Header />
   <main>

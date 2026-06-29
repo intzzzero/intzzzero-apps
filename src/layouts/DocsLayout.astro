@@ -11,14 +11,16 @@ interface Props {
   title: string
   currentApp: string
   currentLang: string
+  canonical?: string
+  alternates?: { lang: string; href: string }[]
 }
 
-const { title, currentApp, currentLang } = Astro.props
+const { title, currentApp, currentLang, canonical, alternates } = Astro.props
 const currentAppInfo = apps.find(app => app.id === currentApp)
 ---
 
 <BaseLayout fullWidth={true}>
-  <BaseHead slot="head" title={title} description={`${title} Documentation`} />
+  <BaseHead slot="head" title={title} description={`${title} Documentation`} canonical={canonical} alternates={alternates} />
   <Header />
   <main class="docs-main">
     <div class="docs-header">
